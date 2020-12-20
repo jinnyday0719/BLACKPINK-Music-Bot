@@ -53,6 +53,7 @@ client.on('message', async message => {
     if (message.content === 'Play' || message.content === 'Skip') {
         if (message.member.voice.channel) {
             let connection = await message.member.voice.channel.join();
+            await message.guild.me.voice.setSelfDeaf(true);
             message.react('👌');
             let _music_list = music_list.shuffle();
             async function music() {
