@@ -1,7 +1,7 @@
 const discord = require('discord.js');
-const client = new discord.Client();
 const ytdl = require('ytdl-core');
 const axios = require('axios');
+const client = new discord.Client();
 const token = process.env.token;
 client.login(token);
 
@@ -77,7 +77,7 @@ client.on('message', async message => {
             message.reply('You need to join a voice channel first!');
         }
     } else if (message.content === 'Leave') {
-        if (message.member.voice.channel === undefined) {
+        if (message.member.voice.channel === null) {
             message.member.voice.channel.leave();
             message.react('👌');
         } else {
