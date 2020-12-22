@@ -78,6 +78,8 @@ client.on('message', async message => {
     } else if (message.content === 'Leave') {
         message.member.voice.channel.leave();
         message.react('👌');
+    } else {
+        message.reply('You need to join a voice channel first!');
     }
     if (message.content === 'Help') {
         let embed = new discord.MessageEmbed()
