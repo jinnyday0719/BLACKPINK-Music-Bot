@@ -73,13 +73,17 @@ client.on('message', async message => {
             }
             music();
         } else {
+            message.react('👎');
             message.reply('You need to join a voice channel first!');
         }
     } else if (message.content === 'Leave') {
-        message.member.voice.channel.leave();
-        message.react('👌');
-    } else {
-        message.reply('You need to join a voice channel first!');
+        if (!message.member.voice.channel) {
+            message.member.voice.channel.leave();
+            message.react('👌');
+        } else {
+            message.react('👎');
+            message.reply('You need to join a voice channel first!');
+        }
     }
     if (message.content === 'Help') {
         let embed = new discord.MessageEmbed()
