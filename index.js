@@ -2,7 +2,7 @@ const discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const axios = require('axios');
 const client = new discord.Client();
-const token = 'NzkwMDYzNDY0NjcyNTI2Mzc2.X97J8A.j94nc42y7wa7DcrPki8wh0DC5ds';
+const token = process.env.token;
 client.login(token);
 
 Array.prototype.shuffle = function () {
