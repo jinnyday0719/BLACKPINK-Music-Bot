@@ -79,7 +79,7 @@ client.on('message', async message => {
     } else if (message.content === 'Leave') {
         if (message.member.voice.channel) {
             message.member.voice.channel.leave();
-            message.react('👌');
+            message.react('👋');
         } else {
             message.react('👎');
             message.reply('You need to join a voice channel first!');
