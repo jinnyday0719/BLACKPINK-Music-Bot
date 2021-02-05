@@ -76,9 +76,15 @@ client.on('message', async message => {
         } else {
             message.react('👎');
             message.reply('You need to join a voice channel first!');
-        } else if (message.content === 'Leave') {
+        }
+    }
+    if (message.content === 'Leave') {
+        try {
             channel.leave();
             message.react('👋');
+            channel = null;
+        } catch(e) {
+            return;
         }
     }
     if (message.content === 'Help') {
