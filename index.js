@@ -75,7 +75,7 @@ client.on('message', async message => {
                 let _music_list1 = _music_list.slice();
                 _music_list1.push(_music_list1.shift());
                 let embed = new discord.MessageEmbed()
-                    .setColor('#ff55ff')
+                    .setColor('#000000')
                     .setTitle('Music List')
                     .setDescription('\u200b');
                 for (let i in _music_list1) {
@@ -85,7 +85,7 @@ client.on('message', async message => {
                 music();
             } else {
                 try {
-                    if (Number(message.content.slice(5)) === NaN) {
+                    if (String(Number(message.content.slice(5))).includes(NaN)) {
                         let music_url = 'https://www.youtube.com/watch?v=' + music_list.find(v => v.includes(message.content.slice(5))).split('$')[1];
                         let info_json = (await axios.get('https://www.youtube.com/oembed?url=' + music_url)).data;
                         let embed = new discord.MessageEmbed()
@@ -159,7 +159,7 @@ client.on('message', async message => {
                 { name: '`Resume`', value: '-Resume the music', inline: false },
                 { name: '`Finish`', value: '-Finish the music', inline: false },
                 { name: '`Leave`', value: '-Turn off the music', inline: false },
-                { name: '`List`', value: 'Send the music list', inline: false }
+                { name: '`List`', value: '-Send the music list', inline: false }
             );
         message.channel.send(embed);
     }
