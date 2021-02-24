@@ -85,7 +85,7 @@ client.on('message', async message => {
                 music();
             } else {
                 try {
-                    if (Number.isNaN((Number(message.content.slice(5))))) {
+                    if (isNaN((Number(message.content.slice(5))))) {
                         let music_url = 'https://www.youtube.com/watch?v=' + music_list.find(v => v.includes(message.content.slice(5))).split('$')[1];
                         let info_json = (await axios.get('https://www.youtube.com/oembed?url=' + music_url)).data;
                         let embed = new discord.MessageEmbed()
