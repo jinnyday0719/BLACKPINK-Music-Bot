@@ -41,7 +41,6 @@ client.on('ready', async () => {
 
 client.on('message', async message => {
     if (message.content.startsWith('Play') || message.content === 'Skip') {
-        let messgae = message.content;
         if (message.member.voice.channel) {
             channel = message.member.voice.channel;
             let connection = await channel.join();
