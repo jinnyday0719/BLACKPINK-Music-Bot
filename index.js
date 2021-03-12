@@ -108,11 +108,11 @@ client.on('message', async message => {
                 } catch(_) {
                     message.reply('Music is not on the list!');
                     let embed = new discord.MessageEmbed()
-                        .setColor('#ff55ff')
+                        .setColor('#000000')
                         .setTitle('Music List')
                         .setDescription('\u200b');
                     let embed1 = new discord.MessageEmbed()
-                        .setColor('#ff55ff')
+                        .setColor('#000000')
                         .addField('26: `' + music_list[25].split('$')[0] + '`', '\u200b', true);
                     for (let i in music_list) {
                         embed.addField(Number(i) + 1 + ': `' + music_list[i].split('$')[0] + '`', '\u200b', true);
