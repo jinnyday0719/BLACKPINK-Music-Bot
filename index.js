@@ -30,7 +30,8 @@ const music_list = [
     'Crazy Over You$u7rKGj13pAs',
     'Love To Hate Me$wlzGXcTzdzU',
     'You Never Know$4Kk_iaaHd_Y',
-    'SOLO$b73BI9eUkjM'
+    'SOLO$b73BI9eUkjM',
+    'On The Ground$CKZvWhCqx1s'
 ];
 const music_list1 = music_list.slice();
 
@@ -40,6 +41,7 @@ client.on('ready', async () => {
 
 client.on('message', async message => {
     if (message.content.startsWith('Play') || message.content === 'Skip') {
+        let messgae = message.content;
         if (message.member.voice.channel) {
             channel = message.member.voice.channel;
             let connection = await channel.join();
@@ -72,20 +74,10 @@ client.on('message', async message => {
                         music();
                     });
                 }
-                let _music_list1 = _music_list.slice();
-                _music_list1.push(_music_list1.shift());
-                let embed = new discord.MessageEmbed()
-                    .setColor('#000000')
-                    .setTitle('Music List')
-                    .setDescription('\u200b');
-                for (let i in _music_list1) {
-                    embed.addField(Number(i) + 1 + ': `' + _music_list1[i].split('$')[0] + '`', '\u200b', true);
-                }
-                message.channel.send(embed);
                 music();
             } else {
                 try {
-                    if (isNaN((Number(message.content.slice(5))))) {
+                    if (Number.isNaN((Number(message.content.slice(5))))) {
                         let music_url = 'https://www.youtube.com/watch?v=' + music_list.find(v => v.includes(message.content.slice(5))).split('$')[1];
                         let info_json = (await axios.get('https://www.youtube.com/oembed?url=' + music_url)).data;
                         let embed = new discord.MessageEmbed()
@@ -120,10 +112,14 @@ client.on('message', async message => {
                         .setColor('#ff55ff')
                         .setTitle('Music List')
                         .setDescription('\u200b');
+                    let embed1 = new discord.MessageEmbed()
+                        .setColor('#ff55ff')
+                        .addField('26: `' + music_list[25].split('$')[0] + '`', '\u200b', true);
                     for (let i in music_list) {
                         embed.addField(Number(i) + 1 + ': `' + music_list[i].split('$')[0] + '`', '\u200b', true);
                     }
                     message.channel.send(embed);
+                    message.channel.send(embed1);
                 }
             }
         } else {
@@ -151,7 +147,7 @@ client.on('message', async message => {
     if (message.content === 'Help') {
         let embed = new discord.MessageEmbed()
             .setColor('#ff55ff')
-            .setTitle('Commands')
+            .setTitle('Music List')
             .addFields(
                 { name: '`Play`', value: '-Play the music', inline: false },
                 { name: '`Skip`', value: '-Skip the music', inline: false },
@@ -168,9 +164,13 @@ client.on('message', async message => {
             .setColor('#ff55ff')
             .setTitle('Music List')
             .setDescription('\u200b');
+        let embed1 = new discord.MessageEmbed()
+            .setColor('#ff55ff')
+            .addField('26: `' + music_list[25].split('$')[0] + '`', '\u200b', true);
         for (let i in music_list) {
             embed.addField(Number(i) + 1 + ': `' + music_list[i].split('$')[0] + '`', '\u200b', true);
         }
         message.channel.send(embed);
+        message.channel.send(embed1);
     }
 });
