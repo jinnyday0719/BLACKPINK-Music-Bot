@@ -31,7 +31,8 @@ const music_list = [
     'Love To Hate Me$wlzGXcTzdzU',
     'You Never Know$4Kk_iaaHd_Y',
     'SOLO$b73BI9eUkjM',
-    'On The Ground$CKZvWhCqx1s'
+    'On The Ground$CKZvWhCqx1s',
+    'Gone$egvkZiONRwE'
 ];
 const music_list1 = music_list.slice();
 
@@ -113,7 +114,8 @@ client.on('message', async message => {
                         .setDescription('\u200b');
                     let embed1 = new discord.MessageEmbed()
                         .setColor('#000000')
-                        .addField('26: `' + music_list[25].split('$')[0] + '`', '\u200b', true);
+                        .addField('26: `' + music_list[25].split('$')[0] + '`', '\u200b', true)
+                        .addField('27: `' + music_list[26].split('$')[0] + '`', '\u200b', true);
                     for (let i in music_list) {
                         embed.addField(Number(i) + 1 + ': `' + music_list[i].split('$')[0] + '`', '\u200b', true);
                     }
@@ -165,7 +167,8 @@ client.on('message', async message => {
             .setDescription('\u200b');
         let embed1 = new discord.MessageEmbed()
             .setColor('#ff55ff')
-            .addField('26: `' + music_list[25].split('$')[0] + '`', '\u200b', true);
+            .addField('26: `' + music_list[25].split('$')[0] + '`', '\u200b', true)
+            .addField('27: `' + music_list[26].split('$')[0] + '`', '\u200b', true);
         for (let i in music_list) {
             embed.addField(Number(i) + 1 + ': `' + music_list[i].split('$')[0] + '`', '\u200b', true);
         }
