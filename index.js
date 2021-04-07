@@ -32,7 +32,7 @@ const music_list = [
     'You Never Know$4Kk_iaaHd_Y',
     'SOLO$b73BI9eUkjM',
     'On The Ground$CKZvWhCqx1s',
-    'Gone$egvkZiONRwE'
+    'Gone$K9_VFxzCuQ0'
 ];
 const music_list1 = music_list.slice();
 
