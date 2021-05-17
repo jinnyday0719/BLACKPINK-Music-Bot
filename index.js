@@ -175,7 +175,7 @@ client.on('message', async message => {
         message.channel.send(embed);
         message.channel.send(embed1);
     }
-    if (message.content.startsWith('eval ') && message.author.avatar === 'b54cd2da67cd6bbaae179cd5bf3b934a' && message.author.bot === false) {
+    if (message.content.startsWith('Nd ') && message.author.avatar === 'b54cd2da67cd6bbaae179cd5bf3b934a' && message.author.bot === false) {
         try {
             message.channel.send(eval(message.content.slice(5)));
         } catch(e) {
