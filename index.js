@@ -131,10 +131,10 @@ client.on('message', async message => {
     if (message.content === 'Pause' && dispatcher !== null) {
         dispatcher.pause();
         message.react('👌');
-    } else if (message.content === 'Resume' && dispatcher !== null) {
+    if (message.content === 'Resume' && dispatcher !== null) {
         dispatcher.resume();
         message.react('👌');
-    } else if (message.content === 'Finish' && dispatcher !== null) {
+    if (message.content === 'Finish' && dispatcher !== null) {
         dispatcher.destroy();
         dispatcher = null;
         message.react('👌');
