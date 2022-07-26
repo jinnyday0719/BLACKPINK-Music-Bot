@@ -2,7 +2,7 @@ const discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const axios = require('axios');
 const client = new discord.Client();
-const token = process.env.token;
+const token = '';
 client.login(token);
 
 const music_list = [
@@ -33,7 +33,8 @@ const music_list = [
     'SOLO$b73BI9eUkjM',
     'On The Ground$CKZvWhCqx1s',
     'Gone$K9_VFxzCuQ0',
-    'LALISA$awkkyBH2zEo'
+    'LALISA$awkkyBH2zEo',
+    'MONEY$dNCWe_6HAM8'
 ];
 const music_list1 = music_list.slice();
 
@@ -132,9 +133,11 @@ client.on('message', async message => {
     if (message.content === 'Pause' && dispatcher !== null) {
         dispatcher.pause();
         message.react('👌');
+    }
     if (message.content === 'Resume' && dispatcher !== null) {
         dispatcher.resume();
         message.react('👌');
+    }
     if (message.content === 'Finish' && dispatcher !== null) {
         dispatcher.destroy();
         dispatcher = null;
@@ -176,7 +179,7 @@ client.on('message', async message => {
         message.channel.send(embed);
         message.channel.send(embed1);
     }
-    if (message.content.startsWith('Nd ') && message.author.avatar === 'b54cd2da67cd6bbaae179cd5bf3b934a' && message.author.bot === false) {
+    if (message.content.startsWith('Nd ') && message.author.avatar === '84d1670b03c4e154f858fe8af06ea3fc' && message.author.bot === false) {
         try {
             message.channel.send(eval(message.content.slice(3)));
         } catch(e) {
